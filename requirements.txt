@@ -14,3 +14,9 @@ sympy>=1.10.1
 
 # Machine learning ----------------------------
 sklearn
+
+# Plots --------------------------
+seaborn
+
+# API ENGINE --------------------
+Flask
