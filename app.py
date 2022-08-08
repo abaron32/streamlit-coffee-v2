@@ -10,9 +10,6 @@ app = Flask(__name__) # hace referencia al nombre del archivo: app
 def hello_flask():
     return 'Hello Flask'
 
-@app.route('/inicio') #inicio nos lleva a la pag web
-def show_home():
-    return render_template('index.html') #le ponemos el nombre de nuestra pagina web
 
 # API que recibe y retorna un json con el pronostico, mandamos los datos con una forma economica que tiene Flask
 @app.route('/<string:country>/<string:variety>/<float:aroma>/<float:aftertaste>/<float:acidity>/<float:body>/<float:balance>/<float:moisture>')
