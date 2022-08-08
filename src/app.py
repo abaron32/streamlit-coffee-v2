@@ -1,4 +1,8 @@
 from flask import Flask, render_template, jsonify, request
+import pickle
+import pandas as pd
+import numpy as np
+
 
 app = Flask(__name__) # hace referencia al nombre del archivo: app
 
@@ -10,12 +14,25 @@ def hello_flask():
 def show_home():
     return render_template('index.html') #le ponemos el nombre de nuestra pagina web
 
-@app.route('/url_variables/<string:name>/<int:age>') #le pasamos parametros a la url
-def url_variables(name, age):
-    if age<18:
-        return jsonify(message = 'Lo siento ' + name + ' no estas autorizado'), 401 # 401 es el error
+# API que recibe y retorna un json
+@app.route('/<string:country>/<string:variety>/<float:aroma>/<float:aftertaste>/<float:acidity>/<float:body>/<float:balance>/<float:moisture>')
+def result(country, variety, aroma, aftertaste, acidity, body, balance, moisture):
+    cols = ['country_of_origin', 'variety', 'aroma', 'aftertaste', 'acidity', 'body', 'balance', 'moisture'] 
+    # contenido de objeto pandas
+    data = [country, variety, aroma, aftertaste, acidity, body, balance, moisture]
+    # df
+    posted = pd.DataFrame(np.array(data).reshape(1,8), columns=cols)
+    # Cargamos modelo entrenado
+    loaded_model = pickle.load(open('../models/coffee_model.pkl', 'rb')) # rb: read binary
+    # Pasar los datos al modelo
+    result = loaded_model.predict(posted) # devuelve archivo np, necesito llevarlo a texto
+    text_result = result.tolist()[0]
+    if text_result == 'Yes':
+        return jsonify(message='Es un café de especialiad'), 200
     else:
-        return jsonify(message = 'Bienvenida ' + name), 200 # por default ya viene 200, no es necesario ponerlo
+        return jsonify(mmesage='No es un café de especialidad'), 200 
+    
+
 
 
 
