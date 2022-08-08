@@ -5,14 +5,14 @@ import numpy as np
 # Contenido ficticio para poner en el model
 # Modelo recibe 8 variables
 
-country='Other'
-variety='Other'
-aroma = 7.42
-aftertaste = 7.33
-acidity = 7.42
-body=7.25
-balance=7.33
-moisture=8.0
+country='Colombia'
+variety='Caturra'
+aroma = 7.83
+aftertaste = 7.77
+acidity = 7.33
+body=7.67
+balance=7.77
+moisture=0.11
 
 
 # Usamos un pipeline entonces tenemos que ponerlo en un df
