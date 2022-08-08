@@ -28,9 +28,9 @@ def result(country, variety, aroma, aftertaste, acidity, body, balance, moisture
     result = loaded_model.predict(posted) # devuelve archivo np, necesito llevarlo a texto
     text_result = result.tolist()[0]
     if text_result == 'Yes':
-        return jsonify(message='Es un café de especialiad'), 200
+        return jsonify(message='Es un cafe de especialiad'), 200
     else:
-        return jsonify(mmesage='No es un café de especialidad'), 200 
+        return jsonify(message='No es un cafe de especialidad'), 200 
     
 
 
