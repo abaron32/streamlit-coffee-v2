@@ -37,6 +37,6 @@ loaded_model = pickle.load(open('../models/coffee_model.pkl', 'rb')) # rb: read 
 
 result = loaded_model.predict(posted) # devuelve archivo np, necesito llevarlo a texto
 
-text_result = result.tolist(result)[0]
+text_result = result.tolist()[0]
 
 print(text_result)
