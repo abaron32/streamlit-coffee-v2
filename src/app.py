@@ -14,7 +14,7 @@ def hello_flask():
 def show_home():
     return render_template('index.html') #le ponemos el nombre de nuestra pagina web
 
-# API que recibe y retorna un json
+# API que recibe y retorna un json con el pronostico, mandamos los datos con una forma economica que tiene Flask
 @app.route('/<string:country>/<string:variety>/<float:aroma>/<float:aftertaste>/<float:acidity>/<float:body>/<float:balance>/<float:moisture>')
 def result(country, variety, aroma, aftertaste, acidity, body, balance, moisture):
     cols = ['country_of_origin', 'variety', 'aroma', 'aftertaste', 'acidity', 'body', 'balance', 'moisture'] 
@@ -38,4 +38,4 @@ def result(country, variety, aroma, aftertaste, acidity, body, balance, moisture
 
 # le decimos a Flask que corra
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=5000) #lo hacemos en modalidad debug
+    app.run(debug=True, host='127.0.0.1', port=5000) # debug=True para poder hacer tracing del problema

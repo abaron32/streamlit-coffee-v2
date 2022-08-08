@@ -40,3 +40,5 @@ result = loaded_model.predict(posted) # devuelve archivo np, necesito llevarlo a
 text_result = result.tolist()[0]
 
 print(text_result)
+
+# Despues que probamos que esto funciona vamos a app.py
