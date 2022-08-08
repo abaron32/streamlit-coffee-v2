@@ -20,7 +20,7 @@ def result(country, variety, aroma, aftertaste, acidity, body, balance, moisture
     # df
     posted = pd.DataFrame(np.array(data).reshape(1,8), columns=cols)
     # Cargamos modelo entrenado
-    loaded_model = pickle.load(open('../models/coffee_model.pkl', 'rb')) # rb: read binary
+    loaded_model = pickle.load(open('coffee_model.pkl', 'rb')) # rb: read binary
     # Pasar los datos al modelo
     result = loaded_model.predict(posted) # devuelve archivo np, necesito llevarlo a texto
     text_result = result.tolist()[0]
