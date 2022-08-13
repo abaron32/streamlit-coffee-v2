@@ -8,7 +8,7 @@ app = Flask(__name__) # hace referencia al nombre del archivo: app
 
 @app.route('/')
 def hello_flask():
-    return 'Hello Flask'
+    return 'This is an API to predict if a coffee is specialty or not. In order to see the prediction you have to add the value of each of the 8 features in the route separated by "/". For example: /Other/Other/7.1/7.4/7.2/7.6/8.0/0.1'
 
 
 # API que recibe y retorna un json con el pronostico, mandamos los datos con una forma economica que tiene Flask
@@ -25,9 +25,9 @@ def result(country, variety, aroma, aftertaste, acidity, body, balance, moisture
     result = loaded_model.predict(posted) # devuelve archivo np, necesito llevarlo a texto
     text_result = result.tolist()[0]
     if text_result == 'Yes':
-        return jsonify(message='Es un cafe de especialiad'), 200
+        return jsonify(message='It is a specialty coffee.'), 200
     else:
-        return jsonify(message='No es un cafe de especialidad'), 200 
+        return jsonify(message='It is not a specialty coffee.'), 200 
     
 
 
