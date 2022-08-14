@@ -1,7 +1,7 @@
-# coffee-api
+# Streamlit project
 
-This repo was connected to Heroku. This allows others to use the model to predict if a coffee with determined features is specilaty or not.
+In this project I built an app using Streamlit. In the app you can include certain parameters of a coffee and get a prediction if it is an specialty coffee or not.
 
-Here the app can be seen: https://coffeeapi-ab.herokuapp.com
+This repo was connected to Heroku. This allows others to use the model.
 
-In order to see the prediction the features have to be added in the route with '/' as separators.
+Here you can see the app: 
