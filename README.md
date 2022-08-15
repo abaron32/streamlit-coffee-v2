@@ -4,4 +4,4 @@ In this project I built an app using Streamlit. In the app you can include certa
 
 This repo was connected to Heroku. This allows others to use the model.
 
-Here you can see the app: 
+Here you can see the app: https://coffee-streamlit-app.herokuapp.com/
